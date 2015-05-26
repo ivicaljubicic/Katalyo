@@ -7,6 +7,7 @@
         <title>{% block head_title %}Welcome to my blog{% endblock %}</title>
         <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico' %}" />
         <link rel="stylesheet" type="text/css" href="{% static 'Css/master.css' %}" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"> </script> 
     
         <script type="text/javascript">
 
@@ -22,23 +23,66 @@
 
         </script>
         
+        <script type="text/javascript">
+
+        $(document).ready(function () {
+            $(".headerlink").click(function () {
+                $("#headerdetails").slideToggle();
+            });
+             $(".closedetails").click(function () {
+                $("#headerdetails").slideToggle();
+            });
+            
+            });
+        </script>
     </head>
+  
     <body>
+    {% if user.is_authenticated %}
         <div id="header">
-            {% block header %}
-
+            <span class="headerlink">Build header here - logout, back?!, home, processing </span><a href="{% url 'logout' %}">[Logout]</a>
+             {% block header %}
+            
             {% endblock %}
         </div>
-        <div id="content">
-            {% block content %}
-
+        <div id="headerdetails">
+            <span class="closedetails">Build header details here - user details</span>
+            {% block headerdetails %}
+            
             {% endblock %}
         </div>
-        <div id="footer">
+        <div id="holder">
+            <div id="menu">
+                <h5>Build menu here</h5>
+                               
+                {% block menu %}
+    
+                {% endblock %}
+            </div>
+            <div id="content">
+                <h5>Generate content here</h5>
+                {% block content %}
+    
+                {% endblock %}
+            </div>
+        </div>
+       <!--
+       
+       <div id="footer">
             {% block footer %}
 
             {% endblock %}
         </div>
-       
+        -->
+    {% else %}
+        <div id="headernoauth">
+            <h2>Welcome Guest! <br> Please <a href="{% url 'login' %}">[Sign in]</a></h2>
+             {% block headernoauth %}
+            
+            {% endblock %}
+        </div>
+        
+           
+    {% endif %}
     </body>
 </html>

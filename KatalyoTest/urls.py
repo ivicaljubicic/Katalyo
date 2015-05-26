@@ -20,4 +20,5 @@ from resources.views import resourcedef
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^resource-def/', resourcedef,name='resourcedef'),
+    url('^', include('django.contrib.auth.urls')),
 ]

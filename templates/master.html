@@ -40,7 +40,8 @@
     <body>
     {% if user.is_authenticated %}
         <div id="header">
-            <span class="headerlink">Build header here - logout, back?!, home, processing </span><a href="{% url 'logout' %}">[Logout]</a>
+            <span class="headerlink">Build header here - logout, back?!, home, processing </span>
+            <a href="{% url 'django.contrib.auth.views.logout' %}">[Logout]</a>
              {% block header %}
             
             {% endblock %}

@@ -18,7 +18,8 @@ from django.contrib import admin
 from resources.views import resourcedef
 
 urlpatterns = [
+    url('^', include('django.contrib.auth.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^resource-def/', resourcedef,name='resourcedef'),
-    url('^', include('django.contrib.auth.urls')),
+    
 ]

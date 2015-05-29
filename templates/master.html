@@ -1,14 +1,20 @@
 ﻿{% load staticfiles %}
 
-
-
 <html>
     <head>
         <title>{% block head_title %}Welcome to my blog{% endblock %}</title>
         <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico' %}" />
-        <link rel="stylesheet" type="text/css" href="{% static 'Css/master.css' %}" />
+       
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"> </script> 
-    
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        
         <script type="text/javascript">
 
             var _gaq = _gaq || [];
@@ -38,52 +44,60 @@
     </head>
   
     <body>
-    {% if user.is_authenticated %}
-        <div id="header">
-            <span class="headerlink">Build header here - logout, back?!, home, processing </span>
-            <a href="{% url 'django.contrib.auth.views.logout' %}">[Logout]</a>
-             {% block header %}
+        {% if user.is_authenticated %}
+            <nav class="navbar navbar-default">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="#">WebSiteName</a>
+                </div>
+                <div>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Page 1</a></li>
+                    <li><a href="#">[User details]</a></li>
+                    {% block header %}
+                    
+                    {% endblock %}
+                    <li> <a href="{% url 'django.contrib.auth.views.logout' %}">[Logout]</a></li> 
+                  </ul>
+                </div>
+              </div>
+              
+            </nav>
+                      
+                <div id="holder" class="row">
+                    <div class="col-md-2 menu">
+                        <h5>Build menu here</h5>
+                                       
+                        {% block menu %}
             
-            {% endblock %}
-        </div>
-        <div id="headerdetails">
-            <span class="closedetails">Build header details here - user details</span>
-            {% block headerdetails %}
+                        {% endblock %}
+                    </div>
+                    <div id="content" class="col-md-8">
+                        <h5>Generate content here</h5>
+                        {% block content %}
             
-            {% endblock %}
-        </div>
-        <div id="holder">
-            <div id="menu">
-                <h5>Build menu here</h5>
-                               
-                {% block menu %}
-    
-                {% endblock %}
-            </div>
-            <div id="content">
-                <h5>Generate content here</h5>
-                {% block content %}
-    
-                {% endblock %}
-            </div>
-        </div>
-       <!--
-       
-       <div id="footer">
-            {% block footer %}
-
-            {% endblock %}
-        </div>
-        -->
-    {% else %}
-        <div id="headernoauth">
-            <h2>Welcome Guest! <br> Please <a href="{% url 'login' %}">[Sign in]</a></h2>
-             {% block headernoauth %}
-            
-            {% endblock %}
-        </div>
+                        {% endblock %}
+                    </div>
+                </div>
+               <!--
+               
+               <div id="footer">
+                    {% block footer %}
         
-           
-    {% endif %}
+                    {% endblock %}
+                </div>
+                -->
+            {% else %}
+                <div id="headernoauth">
+                    <h2>Welcome Guest! <br> Please <a href="{% url 'login' %}">[Sign in]</a></h2>
+                     {% block headernoauth %}
+                    
+                    {% endblock %}
+                </div>
+                
+                   
+            {% endif %}
+        </div>
     </body>
 </html>

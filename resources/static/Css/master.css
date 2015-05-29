@@ -39,14 +39,9 @@ color:#4D4DB8;
 {
   /*position: relative;*/
 }
-#menu           	  
+.menu           	  
 {
- position: absolute; 
- min-height:100px;
- padding-left: 5px;
- /*height: 85 */
- width: 20%;
- background-color: #f5f5ff;
+  background-color: #f5f5ff;
  /*border-bottom: 3px solid Red;*/
 }
 #content            	  

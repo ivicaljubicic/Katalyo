@@ -1,28 +1,38 @@
+{% extends "simplemaster.html" %}
 <html>
+    {% block head_title %}Login page{% endblock %}
     <body>
-        <form method="post" class="form-horizontal" action="{% url 'login' %}">
-           {% csrf_token %}
+     {% block content %}
+        <form method="post"  action="{% url 'login' %}">
+            {% csrf_token %}
             {% if next %}
                 <input type="hidden" name="next" value="{{ next }}" />
             {% endif %}
-        <div class="control-group">
-            <label class="control-label" for="username">Username</label>
-            <div class="controls">
-                <input type="text" id="username" name="username"  placeholder="Username">
+            <div class="panel panel-default">
+                
+                <div class="panel-heading text-center">Login</div>
+                
+                <div class="panel-body">
+                        <div class="control-group">
+                            <label class="control-label" for="username">Username</label>
+                            <input type="text" id="username" name="username"  placeholder="Username">
+                           
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="password">Password</label>
+                            <input type="password" name="password" id="password" placeholder="Password">
+                           
+                        </div>
+                    
+                        <br>
+                        <div class="control-group">
+                            <div class="controls">
+                                <button type="submit" class="btn btn-primary btn-md">Login</button>
+                        </div>
+                  </div>
             </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="password">Password</label>
-            <div class="controls">
-                <input type="password" name="password" id="password" placeholder="Password">
-            </div>
-        </div>
-        <div class="control-group">
-            <div class="controls">
-                <button type="submit" class="btn">Login</button>
-            </div>
-        </div>
+   
         </form>
-    
+      {% endblock %}
     </body>
 </html>

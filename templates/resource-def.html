@@ -1,6 +1,23 @@
 {% extends 'master.html' %}
 
 {% block head_title %}Katalyo | Resource definition {% endblock %}
+ 
+{% block head %}
+<script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#testBtn").click(function () {
+                $(this).button("loading");
+                $("#processingDialog").modal();
+                 });
+            $(".modal-body").click(function () {
+                 $("#processingDialog").modal("hide");
+                 $("#testBtn").button("reset");
+            });
+            
+            });
+        </script>                   
+{% endblock %}
 
 {% block header %}
 
@@ -11,7 +28,10 @@
 {% endblock %}
      
 {% block content %}
-
+<button type="button" id="testBtn" class="btn btn-primary" data-loading-text="<span class='glyphicon glyphicon-hourglass'></span> Testing...">
+                                                     <span class="glyphicon glyphicon-lock"></span> Test
+                                                    
+</button>
 {% endblock %}
         
 {% block footer-bar %}

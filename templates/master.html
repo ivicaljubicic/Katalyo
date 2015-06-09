@@ -1,6 +1,6 @@
 ﻿{% load staticfiles %}
 
-<html>
+<html ng-app>
     <head>
         <title>{% block head_title %}Welcome to my blog{% endblock %}</title>
         <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico' %}" />
@@ -8,7 +8,9 @@
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"> </script> 
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-
+        
+        <!-- Latest compiled and minified Angular.js -->
+         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 
@@ -31,18 +33,6 @@
 
         </script>
         
-        <script type="text/javascript">
-
-        $(document).ready(function () {
-            $(".headerlink").click(function () {
-                $("#headerdetails").slideToggle();
-            });
-             $(".closedetails").click(function () {
-                $("#headerdetails").slideToggle();
-            });
-            
-            });
-        </script>
         {% block head %}
                     
         {% endblock %}
@@ -93,10 +83,10 @@
                 <div class="modal" id="processingDialog" data-backdrop="static" data-keyboard="false">
                     <div class="modal-body text-center">
                         <div class="col-md-2 col-md-offset-5 processingContent">
-                        <h3>Processing...</h3>
-                        <div class="col-xs-2 col-xs-offset-2">
+                            <h3>Processing...</h3>
+                        
                             {% include "loader.html" %}  
-                        </div>
+                        
                        </div>
                     </div>
                 </div>

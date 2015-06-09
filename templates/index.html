@@ -1,26 +1,22 @@
-{% load staticfiles %}
-
-<html ngApp>
+<html ng-app ng-strict-di>
     <head>
-        <title>{% block head_title %}Simple master{% endblock %}</title>
-        <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico' %}" />
-        <link rel="stylesheet" type="text/css" href="{% static 'Css/master.css' %}" />
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"> </script>
-        <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+        <title>{{ title }}</title>
+        <link rel="shortcut icon" type="image/x-icon" href="'favicon.ico'" />
+       
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"> </script> 
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-         
-         <!-- Latest compiled and minified Angular.js -->
+        
+        <!-- Latest compiled and minified Angular.js -->
          <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
-         
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 
+        <link rel="stylesheet" type="text/css" href="{% static 'Css/master.css' %}" />
+                
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-       
         <script type="text/javascript">
 
             var _gaq = _gaq || [];
@@ -34,16 +30,10 @@
             })();
 
         </script>
-        {% block head %}
-        {% endblock %}
+        
     </head>
   
     <body>
-
-       <div class="container-fluid">
-        {% block content %}
-        {% endblock %}
-       </div>
     
     </body>
 </html>

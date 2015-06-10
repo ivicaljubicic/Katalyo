@@ -28,7 +28,7 @@ router.register(r'groups', views.GroupViewSet)
 # Additionally, we include login URLs for the browsable API.
 
 urlpatterns = [
-    url('^', include('django.contrib.auth.urls')),
+    #url('^', include('django.contrib.auth.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^resource-def/', resourcedef,name='resourcedef'),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),

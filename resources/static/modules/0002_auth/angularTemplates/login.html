@@ -1,0 +1,34 @@
+<div ng-show="error" class="alert alert-danger">{{error}}</div>
+<form ng-submit="login()" id="loginForm" class="form-horizontal" role="form">
+
+                    <div class="panel panel-default">
+                        
+                        <div class="panel-heading text-center"><b class="panel-title">Please login</b></div>
+                        
+                        <div class="panel-body">
+                            <div class="col-xs-12 col-xs-offset-2"> 
+                                    <div class="form-group form-group-xs">
+                                                <label  class="col-xs-2" for="username">Username</label>
+                                                <input type="username" ng-model="username" class="col-xs-6" id="username" name="username" placeholder="Username"
+                                                <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+                                    </div>
+                                        
+                                     <div class="form-group form-group-xs">
+                                            <label class="col-xs-2"  for="password">Password</label>
+                                            <input type="password" ng-model="password" class="col-xs-6" name="password" id="password" placeholder="Password">
+                                           <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+                                     </div>
+                                    
+                                     <br>
+                                     <div class="control-group">
+                                            <div class="controls">
+                                                <button type="submit" ng-disabled="form.$invalid || dataLoading" id="loginBtn" class="btn btn-primary" data-loading-text="<span class='glyphicon glyphicon-hourglass'></span> Logging in...">
+                                                     <span class="glyphicon glyphicon-lock"></span> Login
+                                                    
+                                                </button>
+                                            </div>
+                                     </div>
+                            </div>      
+                        </div>
+                </div>      
+</form>

@@ -59,7 +59,7 @@ ROOT_URLCONF = 'KatalyoTest.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates',],
+        'DIRS': ['templates','resources/static/modules/0001_index/angularTemplates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

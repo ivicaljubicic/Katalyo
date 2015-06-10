@@ -12,6 +12,11 @@ def resourcedef(request):
     context = RequestContext(request)
     return render_to_response('resource-def.html', {}, context)
 
+def index(request):
+    context = RequestContext(request)
+    return render_to_response('index.html', {}, context)
+
+
 #Django REST API classes
 class UserViewSet(viewsets.ModelViewSet):
     """

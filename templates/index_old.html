@@ -1,0 +1,52 @@
+{% load staticfiles %}
+
+<html ng-app="Katalyo">
+   
+    <head>
+        {% verbatim %}
+            <title ng-controller="titleCtrl">{{title}}</title>
+        {% endverbatim %}
+        <link rel="shortcut icon" type="image/x-icon" href="{% static  'favicon.ico' %}" />
+       
+         <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        
+        <!-- Latest compiled and minified JQuery.js -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"> </script>
+        
+        <!-- Latest compiled and minified Angular.js -->
+         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+           <!-- Latest compiled and minified Angular-route.js -->
+         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-route.min.js"></script>
+         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-cookies.min.js"></script>
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+        <link rel="stylesheet" type="text/css" href="{% static  'Css/master.css' %}" />
+                
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        
+        <script src="{% static 'modules/0001_index/angularJS/index.js' %}"></script>
+        <script src="{% static 'modules/0002_auth/angularJS/auth.js' %}"></script>
+        <script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-27063178-1']);
+            _gaq.push(['_trackPageview']);
+    
+            (function () {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+        </script>
+        
+    </head>
+  
+    <body>
+        <div ng-include src="navbar"  ng-controller="navbarCtrl"></div>
+        <div ng-include src="layout"  ng-controller="layoutCtrl"></div>
+    </body>
+</html>
